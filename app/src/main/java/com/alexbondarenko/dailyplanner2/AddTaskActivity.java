@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alexbondarenko.dailyplanner2.data.JSONHelper;
 import com.alexbondarenko.dailyplanner2.data.Task;
@@ -74,8 +75,10 @@ public class AddTaskActivity extends AppCompatActivity {
 
                 allTasks = JSONHelper.importFromJSON(getApplicationContext());
                 allTasks.add(task);
-                JSONHelper.exportToJSON(getApplicationContext(), allTasks);
-
+                if (JSONHelper.exportToJSON(getApplicationContext(), allTasks))
+                    Toast.makeText(getApplicationContext(), "added", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "not added(((", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

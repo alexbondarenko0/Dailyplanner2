@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
             else
                 allTasks = new ArrayList<>();
 
+            allTasks.add(new Task(1636393800*1000L, 1636393800*1000L, "Eat", "mm food"));
+            allTasks.add(new Task(1636566600*1000L, 1636566600*1000L, "Run", "run away"));
+            allTasks.add(new Task(1636480200*1000L, 1636480200*1000L, "Read", "Read a book"));
+
             mTaskRows = new ArrayList<>();
 
             tasksByDay = getTasksByDay(allTasks, dayOfMonth, month + 1, year);
